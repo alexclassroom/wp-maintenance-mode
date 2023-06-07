@@ -8,7 +8,7 @@ if ( ! class_exists( 'WP_Maintenance_Mode' ) ) {
 
 	class WP_Maintenance_Mode {
 
-		const VERSION = '2.6.7';
+		const VERSION = '2.6.8';
 
 		const MAINTENANCE  = 'maintenance';
 		const COMING_SOON  = 'coming-soon';
@@ -460,7 +460,7 @@ if ( ! class_exists( 'WP_Maintenance_Mode' ) ) {
 						'msg'   => sprintf(
 									/* translators: plugin settings url */
 							__( 'WP Maintenance Mode plugin was relaunched and you MUST revise <a href="%s">settings</a>.', 'wp-maintenance-mode' ),
-							add_query_arg( array( 'page' => self::get_instance()->plugin_slug ), admin_url( 'options-general.php' ) )
+							add_query_arg( array( 'page' => self::get_instance()->plugin_slug ), admin_url( 'admin.php' ) )
 						),
 					)
 				);
