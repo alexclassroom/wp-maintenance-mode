@@ -7,9 +7,9 @@
 **Author URI:** https://themeisle.com/  
 **Tags:** maintenance mode, admin, administration, unavailable, coming soon, multisite, landing page, under construction, contact form, subscribe, countdown  
 **Requires at least:** 4.7  
-**Tested up to:** 6.8  
-**Stable tag:** 2.6.20  
-**Requires PHP:** 5.6  
+**Tested up to:** 6.9  
+**Stable tag:** 2.6.21  
+**Requires PHP:** 7.1  
 **License:** GPL-2.0+  
 
 Easy Drag & Drop Page Builder that adds a splash page to your site that it's perfect for a coming soon page, maintenance or landing page.
@@ -91,7 +91,20 @@ If you change your login url, please add the new slug (url: http://domain.com/ne
 
 Notice: `wp-cron.php` is excluded by default.
 
+### How to report a security issue? ###
+ 
+Plugin security is a core priority for us. If you identify a potential vulnerability, we ask that you disclose it responsibly.
+
+Please follow the reporting protocols outlined on our [Security Page](https://themeisle.com/security/).
+
 ## Changelog ##
+
+##### [Version 2.6.21](https://github.com/Codeinwp/wp-maintenance-mode/compare/v2.6.20...v2.6.21) (2026-04-06)
+
+- Updated dependencies
+
+
+
 
 ##### [Version 2.6.20](https://github.com/Codeinwp/wp-maintenance-mode/compare/v2.6.19...v2.6.20) (2025-09-04)
 

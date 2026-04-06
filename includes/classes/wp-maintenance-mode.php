@@ -8,7 +8,7 @@ if ( ! class_exists( 'WP_Maintenance_Mode' ) ) {
 
 	class WP_Maintenance_Mode {
 
-		const VERSION = '2.6.20';
+		const VERSION = '2.6.21';
 
 		const MAINTENANCE  = 'maintenance';
 		const COMING_SOON  = 'coming-soon';
@@ -159,6 +159,9 @@ if ( ! class_exists( 'WP_Maintenance_Mode' ) ) {
 					}
 				);
 			}
+
+			add_action( 'init', array( $this, 'initialize_telemetry' ) );
+
 		}
 
 		/**
@@ -1385,7 +1388,7 @@ if ( ! class_exists( 'WP_Maintenance_Mode' ) ) {
 		 */
 		public function otter_add_subscriber( $form_data ) {
 			if ( $form_data ) {
-				$input_data = $form_data->get_payload_field( 'formInputsData' );
+				$input_data = $form_data->get_data_from_payload( 'formInputsData' );
 				$input_data = array_map(
 					function( $input_field ) {
 						if ( isset( $input_field['type'] ) && 'email' === $input_field['type'] ) {
@@ -1448,6 +1451,30 @@ if ( ! class_exists( 'WP_Maintenance_Mode' ) ) {
 		 */
 		public function get_current_page_category() {
 			return $this->current_page_category;
+		}
+
+		/**
+		 * Initialize telemetry.
+		 *
+		 * @return void
+		 */
+		public function initialize_telemetry() {
+			if ( 'yes' === get_option( 'wp_maintenance_mode_logger_flag' ) ) {
+				add_filter( 'themeisle_sdk_enable_telemetry', '__return_true' );
+				add_filter(
+					'themeisle_sdk_telemetry_products',
+					function( $products ) {
+						foreach ( $products as &$product ) {
+							if ( isset( $product['slug'] ) && 'wp' === $product['slug'] ) {
+								$product['slug'] = 'wp_maintenance_mode';
+							}
+						}
+
+						return $products;
+					}
+				);
+			}
+
 		}
 	}
 
