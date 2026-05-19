@@ -2,7 +2,7 @@
     "name": "codeinwp/wp-maintenance-mode",
     "description": "Adds a splash page to your site that lets visitors know your site is down for maintenance. Full access to the back- & front-end is optional.",
     "type": "wordpress-plugin",
-    "version": "2.6.21",
+    "version": "2.6.22",
     "license": "GPL-2.0+",
     "homepage": "https://themeisle.com",
     "support": {
@@ -27,7 +27,8 @@
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
         "phpcompatibility/php-compatibility": "^9.3",
         "phpcompatibility/phpcompatibility-wp": "^2.1",
-        "wp-coding-standards/wpcs": "*"
+        "wp-coding-standards/wpcs": "*",
+        "yoast/phpunit-polyfills": "^4.0"
     },
     "autoload": {
         "files": [
@@ -37,7 +38,7 @@
     "config": {
         "optimize-autoloader": true,
         "platform": {
-            "php": "5.6"
+            "php": "7.2"
         },
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true

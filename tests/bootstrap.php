@@ -7,7 +7,9 @@
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
 
-error_log( var_export ( $_tests_dir, true) );
+if ( class_exists( '\Yoast\PHPUnitPolyfills\Autoload' ) === false ) {
+	require_once dirname( __DIR__ ) . '/vendor/yoast/phpunit-polyfills/phpunitpolyfills-autoload.php';
+}
 
 if ( ! $_tests_dir ) {
     $_tests_dir = rtrim( sys_get_temp_dir(), '/\\' ) . '/wordpress-tests-lib';
