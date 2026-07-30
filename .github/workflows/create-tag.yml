@@ -10,7 +10,7 @@ jobs:
     if: "! contains(github.event.head_commit.message, '[skip ci]')"
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [20.x]
     steps:
       - uses: actions/checkout@master
         with:
@@ -22,7 +22,7 @@ jobs:
       - name: Release new version
         id: release
         run: |
-          yarn install --frozen-lockfile
+          yarn install --frozen-lockfile --ignore-engines
           yarn run release
         env:
           CI: true
